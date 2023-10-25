@@ -1,5 +1,5 @@
 # least
-This is a small package that can be used to create least square plots, supports only lines for now.
+This is a small package that can be used to create least square plots, supports lines and exps.
 
 Dependencies:
 numpy
