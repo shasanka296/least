@@ -1,6 +1,5 @@
 from setuptools import setup
 
-from my_pip_package import __version__
 
 setup(
     name='least',
