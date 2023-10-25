@@ -10,5 +10,5 @@ setup(
     author='Shasanka Lamichhane',
     author_email='sla296@uky.edu',
 
-    py_modules=['least'],
+    py_modules=['Least'],
 )
