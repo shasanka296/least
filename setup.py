@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(
-    name='least',
+    name='Least',
     version=1,
 
     url='https://github.com/shasanka296/least.git',
