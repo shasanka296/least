@@ -9,5 +9,5 @@ setup(
     author='Shasanka Lamichhane',
     author_email='sla296@uky.edu',
 
-    py_modules=['Least'],
+    py_modules=['Least', 'Matrix'],
 )
