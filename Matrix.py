@@ -12,17 +12,17 @@ class Matrix:
             try:
                 self.matrix=[[0 for _ in range(shape[1])] for _ in range(shape[0])]
             except ValueError:
-                print("The specified shape is not a integer")
+                 raise ValueError("The specified shape is not a integer")
             try:
                 self.matrix[:]=content
             except ValueError:
-                print("Shape of content and shape does not match")
+               raise ValueError("Shape of content and shape does not match")
 
         elif shape != None and content == None:
             try:
                 self.matrix = [[0 for i in range(shape[1])] for i in range(shape[0])]
             except TypeError:
-                print("The specified shape is not a integer")
+                raise TypeError("The specified shape is not a integer")
         elif mat != None:
             self.matrix = mat
 
