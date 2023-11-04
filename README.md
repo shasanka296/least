@@ -1,10 +1,8 @@
 # Least
-This is a small package that can be used to create least square plots, supports lines and exps. Currently working on a matrix class to ger rid of numpy and sympy dependencies.
+This is a small package that can be used to create least square plots, supports lines and exps. 
 
 Dependencies:
-numpy
 mathplotlib
-sympy
 
 Example use:
 
