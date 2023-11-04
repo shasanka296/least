@@ -1,29 +1,14 @@
 class Iverter():
     def __init__(self,mat):
-        use_this_mat = mat
+        use_this_mat = []
+        use_this_mat[:]=mat
         self.iden_mat = [[0 for _ in range(len(use_this_mat))] for _ in range(len(use_this_mat))]
         for i in range(len(self.iden_mat)):
             self.iden_mat[i][i] = 1
 
         for i in range(len(use_this_mat)):
-            to_swap = 0
-            swap_with = 0
-            if use_this_mat[i][i] == 0:
-                to_swa = i
-                looking = True
-                while looking:
-                    print("checking pivots")
-                    for j in range(len(use_this_mat) - i):
-                        if use_this_mat[j + i][i] != 0:
-                            swap_with = j + i
-                            looking = False
-                        else:
-                            pass
-            use_this_mat = self.swaper(use_this_mat, swap_with, to_swap)
-            self.iden_mat = self.swaper(self.iden_mat, swap_with, to_swap)
-
-        for i in range(len(use_this_mat)):
-            use_this_mat = self.norm(use_this_mat)
+            use_this_mat[:] = self.piviot_corrector(use_this_mat)
+            use_this_mat[:] = self.norm(use_this_mat)
             current_piviot = use_this_mat[i][i]
             multi_factor = 0
             looking_at = 0
@@ -50,12 +35,40 @@ class Iverter():
 
                 use_this_mat[looking_at] = new_row_mat
 
+
     def swaper(self, mas, swap_to, swap_from):
         r_mat = mas
         temp_mat = r_mat[swap_from]
         r_mat[swap_from] = r_mat[swap_to]
         r_mat[swap_to] = temp_mat
         return r_mat
+
+    def piviot_corrector(self, use_this_mat):
+        use_this= use_this_mat
+
+        for i in range(len(use_this)):
+            to_swap = 0
+            swap_with = 0
+            if use_this[i][i] == 0:
+                to_swap = i
+                looking = True
+                a=0
+                while looking:
+                    print("checking pivots")
+                    a+=1
+                    for j in range(len(use_this) - i):
+                        if use_this[j + i][i] != 0:
+                            swap_with = j + i
+                            looking = False
+                        else:
+                            if a>len(use_this):
+                                raise Exception("this mat is not invertable")
+                            pass
+            use_this = self.swaper(use_this, swap_with, to_swap)
+            self.iden_mat = self.swaper(self.iden_mat, swap_with, to_swap)
+        return use_this_mat
+
+
 
     def row_adder(self,row1, row2, multi=1):
         sum = []

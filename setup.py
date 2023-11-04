@@ -1,13 +1,8 @@
-from setuptools import setup
-
+from setuptools import setup, find_packages
 
 setup(
-    name='Least',
-    version=1,
-
-    url='https://github.com/shasanka296/least.git',
-    author='Shasanka Lamichhane',
-    author_email='sla296@uky.edu',
-
-    py_modules=['Least', 'Matrix', 'Inverter'],
+    name='your_package_name',
+    version='1.0',
+    packages=find_packages(),
+    package_dir={'': '.'},
 )
