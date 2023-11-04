@@ -6,7 +6,7 @@ mathplotlib
 
 Example use:
 
-from Least.Smath import Least as least
+```from Least.Smath import Least as least
 
 
 from Least.Smath import Matrix as mat
@@ -21,18 +21,18 @@ Transposed=a.Transpose()
 identity=a*inverted_a
 least.LSQ(x_val=[2,6,10,12], y_val=[1,2,3,4]).line()
 least.LSQ(x_val=[2,6,10,12], y_val=[1,2,3,4]).exp()
+```
 
 
+For when one wants to type in the x and y values manually.
 
-For when one wants to manualy type in the x and y values.
-
-
+```
 least.LSQ(file="Path").line()
 least.LSQ(file="Path").exp()
-
+```
 When one has a file with the data instead.
 
 The data file must be in the following format:
 X Y
 
-Where the x value is listed first and the y after it, the empty spaces between x and y is not relevant.
+Where the x value is listed first and the y after it, the empty spaces between x and y are irrelevant.
