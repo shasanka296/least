@@ -1,13 +1,11 @@
 import Least.Smath.Inverter as op
 import math
 
+
 class Matrix:
-
-
     """The following class initializes a matrix that is used for the least square calculation,
-     the comption of the matrix along with different functions of the matrix resemble those the
+     the creation of the matrix along with different functions of the matrix resemble those the
       convention of matrix manipulation."""
-
 
     def __init__(self, shape=None, content=None, mat=None):
 
@@ -71,20 +69,21 @@ class Matrix:
                 row.append(partial_sum)
             output_mat.append(row)
         return Matrix(mat=output_mat)
-    def equation(self,first,constat):
-        output=[]
-        for iteams in self.matrix:
-            output.append((iteams*first)+constat)
-        return output
-    def axis(self,start,dt,stop):
-        returner=[]
-     
-        total_int=(float(stop)-float(start))/float(dt)
-    
-        for i in range(int(total_int)):
-            returner.append(float(start)+float(dt)*float(i))
-        return returner
 
+    def equation(self, first, constant):
+        output = []
+        for teams in self.matrix:
+            output.append((teams * first) + constant)
+        return output
+
+    def axis(self, start, dt, stop):
+        returner = []
+
+        total_int = (float(stop) - float(start)) / float(dt)
+
+        for i in range(int(total_int)):
+            returner.append(float(start) + float(dt) * float(i))
+        return returner
 
     def row(self, i=0):
         return self.matrix[i]
@@ -95,19 +94,21 @@ class Matrix:
             colum.append(r[i])
 
         return colum
+
     def Inverse(self):
-        to_invert=self.matrix
-        inverted=op.Iverter(to_invert).returner()
+        to_invert = self.matrix
+        inverted = op.Inverter(to_invert).returner()
         return Matrix(mat=inverted)
+
     def ln(self):
-        outputmat=[[0 for _ in range(len(self.matrix[0]))]for _ in range(len(self.matrix))]
+        output_mat = [[0 for _ in range(len(self.matrix[0]))] for _ in range(len(self.matrix))]
         for i in range(len(self.matrix)):
             for k in range(len(self.matrix[0])):
-                outputmat[i][k]=math.log(self.matrix[i][k])
-        return Matrix(mat=outputmat)
-    def exp(self,first,constant):
-        output=[]
-        for iteams in self.matrix:
-            output.append(math.exp((iteams*first))*math.exp(constant))
-        return output
+                output_mat[i][k] = math.log(self.matrix[i][k])
+        return Matrix(mat=output_mat)
 
+    def exp(self, first, constant):
+        output = []
+        for teams in self.matrix:
+            output.append(math.exp((teams * first)) * math.exp(constant))
+        return output
