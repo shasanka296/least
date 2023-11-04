@@ -1,5 +1,5 @@
 # Least
-This is a small package that can be used to create least square plots, supports lines and exps. 
+This is a small package that can be used to create the least square plots, supports lines and exps. It is functional but is still in development 
 
 Dependencies:
 mathplotlib
@@ -24,4 +24,4 @@ When one has a file with the data instead.
 The data file must be in the following format:
 X Y
 
-Where the x vlaues is listed first and the y after it, the empty spaces between x and y is not relevent.
+Where the x value is listed first and the y after it, the empty spaces between x and y is not relevant.
