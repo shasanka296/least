@@ -1,1 +1,1 @@
-from . import Smath
+from . import Least

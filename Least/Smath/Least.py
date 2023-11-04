@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import Smath.Matrix as sha
+import Least.Smath.Matrix as sha
 
 class LSQ:
     def __init__(self, x_val=None, y_val=None, file=None):
