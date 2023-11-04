@@ -78,13 +78,9 @@ class Matrix:
         return output
     def axis(self,start,dt,stop):
         returner=[]
-        print(start)
-        print(stop)
+     
         total_int=(float(stop)-float(start))/float(dt)
-        print(float(stop))
-        print(float(start))
-        print(total_int)
-        print(dt)
+    
         for i in range(int(total_int)):
             returner.append(float(start)+float(dt)*float(i))
         return returner
