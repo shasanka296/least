@@ -53,7 +53,6 @@ class LSQ:
         axix=sha.Matrix().axis(min(x.matrix),0.1, (max(x.matrix)+1))
         x_eq=sha.Matrix(mat=axix)
         line_of_best_fit = x_eq.exp(m, b)
-        # line_of_best_fit = np.exp(b) * np.exp(m * axix)
         print(line_of_best_fit)
         print(min(x.matrix))
         print(max(x.matrix))
