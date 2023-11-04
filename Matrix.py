@@ -45,7 +45,6 @@ class Matrix:
             return self.matrix[row][col]
         except IndexError:
             raise IndexError("index out of bound")
-
     def Transpose(self):
         transposed = [[0 for _ in range(len(self.matrix))] for _ in range(len(self.matrix[0]))]
         for i in range(len(transposed)):
@@ -70,6 +69,19 @@ class Matrix:
                 row.append(partial_sum)
             output_mat.append(row)
         return Matrix(mat=output_mat)
+    def equation(self,first,constat):
+        output=[]
+        for iteams in self.matrix:
+            output.append((iteams*first)+constat)
+        return output
+    def axis(self,start,dt,stop):
+        returner=[]
+        total_int=(float(stop)-float(start))/float(dt)
+        for i in range(int(total_int)):
+            returner.append(float(start)+float(dt)*float(i))
+        return returner
+
+
     def row(self, i=0):
         return self.matrix[i]
 

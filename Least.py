@@ -1,7 +1,5 @@
-import numpy as np
-import sympy as s
 import matplotlib.pyplot as plt
-
+import Matrix as sha
 
 class LSQ:
     def __init__(self, x_val=None, y_val=None, file=None):
@@ -23,40 +21,38 @@ class LSQ:
 
 
     def line(self):
-        aray_l = np.array(self.left)
-        array_r = np.array(self.right)
-        mat_l = s.matrices.Matrix(aray_l)
-        mat_r = s.matrices.Matrix(array_r)
-        mat_l_T = mat_l.transpose()
-        mat_l_T_R = mat_l_T * mat_l
-        mat_r_T_R = mat_l_T * mat_r
-        inverse = mat_l_T_R.inverse_GE()
-        entries = inverse * mat_r_T_R
+        aray_l = sha.Matrix(mat=self.left)
+        array_r = sha.Matrix(mat=self.right)
+        mat_l_T = aray_l.Transpose()
+        mat_l_T_R = mat_l_T * aray_l
+        mat_r_T_R = mat_l_T * array_r
+        inverse = mat_l_T_R.Inverse()
+        entries = (inverse * mat_r_T_R).matrix
         m = float(entries[0])
         b = float(entries[1])
-        x = np.array([self.left[i][0] for i in range(len(self.left))])
+        x = sha.Matrix(mat=[self.left[i][0] for i in range(len(self.left))])
         y = [self.right[i][0] for i in range(len(self.right))]
-        line_of_best_fit = m * x + b
-        plt.plot(x, y, "o", x, line_of_best_fit)
+        line_of_best_fit = x.equation(m,b)
+        plt.plot(x.matrix, y, "o", x.matrix, line_of_best_fit)
         plt.show()
         print(f"The line of best fit is y= {m} X + {b}")
     def exp(self):
-        aray_l = np.array(self.left)
-        array_r = np.log(np.array(self.right))
-        mat_l = s.matrices.Matrix(aray_l)
-        mat_r = s.matrices.Matrix(array_r)
-        mat_l_T = mat_l.transpose()
-        mat_l_T_R = mat_l_T * mat_l
-        mat_r_T_R = mat_l_T * mat_r
-        inverse = mat_l_T_R.inverse_GE()
-        entries = inverse * mat_r_T_R
+        aray_l = sha.Matrix(mat=self.left)
+        array_r = sha.Matrix(mat=self.right) ##change this
+        #array_r = np.log(np.array(self.right))
+        mat_l_T = aray_l.Transpose()
+        mat_l_T_R = mat_l_T * aray_l
+        mat_r_T_R = mat_l_T * array_r
+        inverse = mat_l_T_R.Inverse()
+        entries = (inverse * mat_r_T_R).matrix
         m = float(entries[0])
         b = float(entries[1])
-        x = np.array([self.left[i][0] for i in range(len(self.left))])
-        axix = np.linspace(0, max(x), int(max(x)) * 50)
+        x = sha.Matrix(mat=[self.left[i][0] for i in range(len(self.left))])
         y = [self.right[i][0] for i in range(len(self.right))]
-        line_of_best_fit = np.exp(b) * np.exp(m * axix)
-        plt.plot(x, y, "o", axix, line_of_best_fit)
+        line_of_best_fit = x.equation(m, b) ####need to change this
+        axix=sha.Matrix().axis(0,0.5,10)
+        # line_of_best_fit = np.exp(b) * np.exp(m * axix)
+        plt.plot(x.matrix, y, "o", axix, line_of_best_fit)
         plt.show()
 
-        print(f"The line of best fit is y= {np.exp(b)}*e^{m}*x")
+        print(f"The line of best fit is y= e^{b}*e^{m}*x")
