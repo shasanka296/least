@@ -9,6 +9,8 @@ Example use:
 import Least as least
 least.LSQ(x_val=[2,6,10,12], y_val=[1,2,3,4]).line()
 least.LSQ(x_val=[2,6,10,12], y_val=[1,2,3,4]).exp()
+least.LSQ(x_val=[0,1,2,3], y_val=[1,10,100,1000]).exp()
+
 
 For when one wants to manualy type in the x and y values.
 

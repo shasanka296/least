@@ -1,4 +1,5 @@
 import Inverter as op
+import math
 
 class Matrix:
 
@@ -45,6 +46,7 @@ class Matrix:
             return self.matrix[row][col]
         except IndexError:
             raise IndexError("index out of bound")
+
     def Transpose(self):
         transposed = [[0 for _ in range(len(self.matrix))] for _ in range(len(self.matrix[0]))]
         for i in range(len(transposed)):
@@ -76,7 +78,13 @@ class Matrix:
         return output
     def axis(self,start,dt,stop):
         returner=[]
+        print(start)
+        print(stop)
         total_int=(float(stop)-float(start))/float(dt)
+        print(float(stop))
+        print(float(start))
+        print(total_int)
+        print(dt)
         for i in range(int(total_int)):
             returner.append(float(start)+float(dt)*float(i))
         return returner
@@ -95,3 +103,15 @@ class Matrix:
         to_invert=self.matrix
         inverted=op.Iverter(to_invert).returner()
         return Matrix(mat=inverted)
+    def ln(self):
+        outputmat=[[0 for _ in range(len(self.matrix[0]))]for _ in range(len(self.matrix))]
+        for i in range(len(self.matrix)):
+            for k in range(len(self.matrix[0])):
+                outputmat[i][k]=math.log(self.matrix[i][k])
+        return Matrix(mat=outputmat)
+    def exp(self,first,constant):
+        output=[]
+        for iteams in self.matrix:
+            output.append(math.exp((iteams*first))*math.exp(constant))
+        return output
+
