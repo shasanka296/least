@@ -1,4 +1,4 @@
-import Inverter as op
+import Smath.Inverter as op
 import math
 
 class Matrix:
