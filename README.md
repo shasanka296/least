@@ -10,14 +10,14 @@ Example use:
 from Least.Smath import Least as least
 from Least.Smath import Matrix as mat
 
-Transposed=a.Transpose()
+Transposed_mat = a.Transpose()
 
 least.LSQ(x_val=[0,1,2,3], y_val=[1,10,100,1000]).exp()
-a=mat.Matrix(mat=[[1,1,2,3],[1,2,3,4],[2,3,4,5],[2,3,6,5]])
-inverted_a=a.Inverse()
+a = mat.Matrix(mat=[[1,1,2,3],[1,2,3,4],[2,3,4,5],[2,3,6,5]])
+inverted_a = a.Inverse()
 value_in_row_1_colum_0=a[1,0]
-Transposed=a.Transpose()
-identity=a*inverted_a
+Transposed_mat = a.Transpose()
+identity = a*inverted_a
 least.LSQ(x_val=[2,6,10,12], y_val=[1,2,3,4]).line()
 least.LSQ(x_val=[2,6,10,12], y_val=[1,2,3,4]).exp()
 ```
