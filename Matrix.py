@@ -1,5 +1,15 @@
+import Inverter as op
+
 class Matrix:
+
+
+    """The following class initializes a matrix that is used for the least square calculation,
+     the comption of the matrix along with different functions of the matrix resemble those the
+      convention of matrix manipulation."""
+
+
     def __init__(self, shape=None, content=None, mat=None):
+
         self.matrix = []
         if shape is not None and not isinstance(shape, list):
             raise TypeError("The shape must be a list")
@@ -23,7 +33,7 @@ class Matrix:
             except TypeError:
                 raise TypeError("The specified shape is not a integer")
         elif mat is not None:
-            self.matrix = mat
+            self.matrix[:] = mat
 
     def __str__(self):
         return str(self.matrix)
@@ -60,7 +70,6 @@ class Matrix:
                 row.append(partial_sum)
             output_mat.append(row)
         return Matrix(mat=output_mat)
-
     def row(self, i=0):
         return self.matrix[i]
 
@@ -70,12 +79,7 @@ class Matrix:
             colum.append(r[i])
 
         return colum
-
     def Inverse(self):
-        if len(self.matrix) != len(self.matrix[0]):
-            raise TypeError("not a square matrix")
-
-    def Det(self):
-        det = 0
-
-        return det
+        to_invert=self.matrix
+        inverted=op.Iverter(to_invert).returner()
+        return Matrix(mat=inverted)
