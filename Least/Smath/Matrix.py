@@ -1,4 +1,4 @@
-import Inverter as op
+import Least.Smath.Inverter as op
 import math
 
 
